@@ -53,7 +53,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
 
     //only controls baselayers
     L.control.layers(base_layers, overlay_layers).addTo(map);
-//time
+    //time
     var testTimeLayer=L.timeDimension.layer.wms(temp,{updateTimeDimension:true,});
     testTimeLayer.addTo(map);
 
@@ -83,3 +83,5 @@ map.on('layeradd',onadd);
 function onadd(e){
     console.log('add...',e);
 }
+
+var sidebar = L.control.sidebar('sidebar').addTo(map);
