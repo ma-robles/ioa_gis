@@ -16,8 +16,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
     });
 
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ',
     //mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
     mbUrl = "http://mt1.google.com/vt/lyrs=s&hl=pl&&x={x}&y={y}&z={z}";
 
@@ -53,6 +52,23 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
 
     //only controls baselayers
     L.control.layers(base_layers, overlay_layers).addTo(map);
+    //wind
+        //$.getJSON("https://pronosticos.atmosfera.unam.mx/wind.json", function(data) {
+        $.getJSON("scripts/wind.json", function(data) {
+          var velocityLayer = L.velocityLayer({
+            displayValues: true,
+            displayOptions: {
+              velocityType: "GBR Wind",
+              displayPosition: "bottomleft",
+              displayEmptyString: "No wind data"
+              },
+            data: data,
+            maxVelocity: 10
+            });
+
+            L.control.addOverlay(velocityLayer, "WRF Wind ");
+          });
+
 //time
     var testTimeLayer=L.timeDimension.layer.wms(temp,{updateTimeDimension:true,});
     testTimeLayer.addTo(map);

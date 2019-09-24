@@ -1,7 +1,4 @@
-
 # coding: utf-8
-
-# In[2]:
 
 from netCDF4 import Dataset, num2date
 import numpy as np
@@ -14,55 +11,31 @@ print(filename)
 # import data
 dataset = Dataset(filename)
 
-
-# In[5]:
-
 # interrogate dimensions
 print(dataset.dimensions.keys())
 
-
-# In[6]:
-
 # interrogate variable structure
 print(dataset.variables['U10'])
-
-
-# In[13]:
 
 # interrogate variables
 # find the u and v wind data
 print("Check variables:")
 print(dataset.variables.keys())
 
-
-# In[14]:
-
 # USER input names for u and v wind variables
 u_var = 'U10'
 v_var = 'V10'
 
-
-# In[15]:
-
 print("Check units:")
 print(dataset.variables[u_var].units)
 
-
-# In[18]:
-
 print("Check dimensions:")
 print(dataset.variables[u_var].dimensions, dataset.variables[u_var].shape)
-
-
-# In[19]:
 
 # set header variables for wind
 nx = dataset.variables[u_var].shape[2]
 ny = dataset.variables[u_var].shape[1]
 tot = nx * ny
-
-
-# In[20]:
 
 # get data for u wind
 a = dataset.variables[u_var][:][0]
@@ -71,9 +44,6 @@ b = A.flatten()
 c = np.ravel(b).T
 u_data = c.tolist()
 
-
-# In[21]:
-
 # get data for v wind
 a = dataset.variables[v_var][:][0]
 A = np.matrix(a)
@@ -81,10 +51,8 @@ b = A.flatten()
 c = np.ravel(b).T
 v_data = c.tolist()
 
-
-
-dy=dataset.variables['lat'][:][1,0]
-dy-=dataset.variables['lat'][:][0,0]
+dy=dataset.variables['lat'][:][0,0]
+dy-=dataset.variables['lat'][:][1,0]
 dx=dataset.variables['lon'][:][0,1]
 dx-=dataset.variables['lon'][:][0,0]
 la1=dataset.variables['lat'][:][1,0]
@@ -135,9 +103,6 @@ wind_data = [{
   },
   "data": v_data
 }]
-
-
-# In[25]:
 
 # write JSON for leaflet-velocity input
 with open('wind.json', 'w') as outfile:  
