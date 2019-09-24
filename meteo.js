@@ -51,7 +51,8 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
 
 
     //only controls baselayers
-    L.control.layers(base_layers, overlay_layers).addTo(map);
+    layer_control=L.control.layers(base_layers, overlay_layers);
+    layer_control.addTo(map);
     //wind
         //$.getJSON("https://pronosticos.atmosfera.unam.mx/wind.json", function(data) {
         $.getJSON("scripts/wind.json", function(data) {
@@ -66,7 +67,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
             maxVelocity: 10
             });
 
-            L.control.addOverlay(velocityLayer, "WRF Wind ");
+            layer_control.addOverlay(velocityLayer, "WRF Wind ");
           });
 
 //time
