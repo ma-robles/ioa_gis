@@ -16,22 +16,17 @@
         <link rel="stylesheet" href="leaflet/leaflet-velocity.css" />
         <script defer src="leaflet/leaflet-velocity.js"></script>
 
+    <link rel="stylesheet" href="css/ioa_gis.css" />
     <script defer src='def_vars.js'></script>
     <script defer src='meteo.js'></script>
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            }
-    #map {
-        width: 800px;
-        height: 600px;
-        }
-    </style>
     </head>
     <body>
 
-        <div id='map'></div>
+        <div id='map' style="z-index:1"></div>
+        <div id="title-box">
+                Este es el título
+        </div>
+
     </body>
 </html>

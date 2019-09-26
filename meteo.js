@@ -83,12 +83,21 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
     };
     //legend.addTo(map);
 
-//map.on('overlayadd', onOverlayAdd);
 map.on('baselayerchange', onOverlayAdd);
-var check=0;
+//map.on('overlayadd', onOverlayAdd);
+//map.on('layeradd',onadd);
 
 function onOverlayAdd(e){
+    console.log('overlay');
+    $('#title-box').html(e['name']);
     console.log(e);
+    var opts=e["layer"]["options"];
+    console.log(opts);
+        console.log(e.layer.options.time);
+    console.log(Object.keys(opts));
+    console.log(Object.getOwnPropertyNames(opts));
+    console.log(Object.values(opts));
+    console.log(e['layer']['options'].time);
 //time
     testTimeLayer.remove();
     //    map.removeLayer(base_layers[e["name"]]);
@@ -96,7 +105,34 @@ function onOverlayAdd(e){
     testTimeLayer.addTo(map);
    }
 
-map.on('layeradd',onadd);
 function onadd(e){
-    console.log('add...',e);
+        alert('asdsa');
+        //var mytxt=$('#title-box').text();
+        console.log('add..');
+    //console.log(e['name'],e);
+    //$('#title-box').html(e['name']);
+}
+//map.on('overlayadd',onadd);
+//cursor wait
+map.on('loading' , cursorWait());
+function cursorWait() {
+    document.body.className = 'wait';
+}
+
+map.on('load', endload());
+function endload(){
+        console.log('end loading');
+        document.body.className= 'normal';
+}
+
+//wait for undefined variable
+function waitForElement(someVariable){
+    if(typeof someVariable !== 'undefined'){
+        //variable exists, do what you want
+        console.log('yeah!', someVariable, typeof(someVariable));
+    }
+    else{
+            console.log('wait...');
+        setTimeout(waitForElement, 250);
+    }
 }
