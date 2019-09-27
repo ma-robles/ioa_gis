@@ -21,12 +21,39 @@ function var_gen(url, layer, style, range,){
 return var_t;
 }
 
+function var_gen2(url, layer, style, range,){
+    var var_t=L.WMS.source(url,{
+    //var var_t=L.WMS.tileLayer(url,{
+        //layers:layer,
+        tiled: "true",
+        //version:"1.3.0",
+        //format:'image/png',
+        transparent:true,
+        opacity:0.6,
+        styles: style,
+        colorscalerange: range,
+        belowmincolor:"extend",
+        abovemaxcolor:"extend",
+        numcolorbands:64,
+        //time:"2019-09-12T00:00:00.000Z",
+        attribution:'IOA, Centro de Ciencias de la Atmósfera',
+        uppercase:true,
+        });
+return var_t;
+}
+
 //var url="https://pronosticos.atmosfera.unam.mx:8443/thredds/wms/atlas/WRF/Dom1_2019-09-11.nc"
 var url_owgis="http://pronosticos.unam.mx:8080/ncWMS_2015/wms"
 var url_gea="https://pronosticos.atmosfera.unam.mx:8443/ncWMS_2015/wms"
 var url="https://pronosticos.atmosfera.unam.mx:8443/thredds/wms/atlas/WRF/Dom1_2019-09-12.nc"
 
 var temp=var_gen(url_gea,
+    layer='wrf_Dom1/T2C',
+    style="default-scalar/temperatura",
+    range="-15,50",
+);
+var url_gea2="https://pronosticos.atmosfera.unam.mx:8443/ncWMS_2015/wms?SERVICE=WMS"
+var temp2=var_gen2(url_gea,
     layer='wrf_Dom1/T2C',
     style="default-scalar/temperatura",
     range="-15,50",

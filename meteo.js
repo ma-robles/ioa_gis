@@ -34,8 +34,10 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
         },
         });
 
+temp2.getLayer('wrf_Dom1/T2C').addTo(map);
+//temp2.addTo(map);
     var base_layers = {
-        "Temperatura":temp,
+        "Temperatura a 2 m":temp2,
         "RH":rh,
         "Precipitación Horaria":rain_h,
         "Precipitación Acumulada 3Hrs":rain_3,
