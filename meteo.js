@@ -36,10 +36,10 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
 
     var base_layers = {
         "Temperatura":temp,
-        "RH":rh,
+        "Humedad Relativa":rh,
         "Precipitación Horaria":rain_h,
-        "Precipitación Acumulada 3Hrs":rain_3,
-        "Precipitación Acumulada 6Hrs":rain_6,
+        "Prec. Acumulada 3Hrs":rain_3,
+        "Prec. Acumulada 6Hrs":rain_6,
         "Precipitación Total":rain_t,
         "Nubosidad":cloud,
         "Viento": wind,
@@ -100,3 +100,26 @@ map.on('layeradd',onadd);
 function onadd(e){
     console.log('add...',e);
 }
+
+//add a layer div menu
+add_layers_div(base_layers.keys,'#layercontrol');
+function add_layers_div(layers, div){
+    for (let lname in base_layers) {
+        //var radioBtn = $('<br>'+lname+'<input type="radio" name="layers" >  </input> ');
+        let radioBtn = $('<div > <button class="menu_btn" onclick="click_menu(this,)" >'+lname+  '</button> </div> ');
+        radioBtn.appendTo(div);
+    }
+}
+function click_menu(elem){
+  btn_list=document.getElementsByClassName("menu_btn");
+  for (let i=0; i<btn_list.length;i++){
+    let btn=btn_list[i];
+    btn.style.fontSize="12px";
+    btn.style.backgroundColor="#0001";
+
+    }
+  
+  elem.style.fontSize="14px";
+  elem.style.backgroundColor="#2224";
+}
+

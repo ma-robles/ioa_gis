@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Atlas Layers - Leaflet</title>
+    <title>Meteorológico Layers - Leaflet</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="leaflet/leaflet-velocity.css" />
         <script defer src="leaflet/leaflet-velocity.js"></script>
 
+    <link rel="stylesheet" href="meteo.css" />
     <script defer src='def_vars.js'></script>
     <script defer src='meteo.js'></script>
 
@@ -25,13 +26,19 @@
             margin: 0;
             }
     #map {
+        width: 100%;
+        height: 100%;
+<!--
         width: 800px;
         height: 600px;
+-->
         }
     </style>
     </head>
     <body>
 
         <div id='map'></div>
+        <div id="layercontrol" class='overlay'>
+        </div>
     </body>
 </html>
