@@ -161,6 +161,8 @@
 	}
 .leaflet-right .leaflet-control {
 	margin-right: 10px;
+
+
 	}
 
 
@@ -421,7 +423,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	font-size: 11px;
 	}
 .leaflet-left .leaflet-control-scale {
-	margin-left: 5px;
+	margin-left: 5px;.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
 	}
 .leaflet-bottom .leaflet-control-scale {
 	margin-bottom: 5px;
@@ -638,3 +647,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+.info.leaflet-control {
+    padding: 6px 8px;
+
+    font: 14px/16px Arial;
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+
+}

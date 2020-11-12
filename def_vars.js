@@ -6,7 +6,7 @@ function var_gen(url, layer, style, range,){
         layers: layer,
         format:'image/png',
         transparent:true,
-        opacity:0.6,
+        opacity:0.4,
         //styles:"default-scalar/temperatura",
         styles: style,
         //colorscalerange:"-15,50",
@@ -75,4 +75,3 @@ var wind=var_gen(url_gea,
     style="default-scalar/wind2",
     range="0,250",
 );
-
