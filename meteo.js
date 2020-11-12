@@ -145,6 +145,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
 */
 //time
 
+
      //Insertando una leyenda en el mapa
 
 
@@ -169,7 +170,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
     var legendPrecTot = var_leg(url_gea, "wrf_Dom1/PREC2", "precipitacionGrad");
     var legendNub = var_leg(url_gea, "wrf_Dom1/QCLOUD2", "precipitacionGrad");
     var legendVi = var_leg(url_gea, "wrf_Dom1/Uat10:Vat10-mag", "precipitacionGra");
-    
+
 
 
     function time_layer(layer,name,units){
@@ -306,5 +307,6 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
     var infoPrecH = setup_info("Precipitación Horaria");
     var infoPrecAc3 = setup_info("Precipitación Acumulada 3hrs");
     var infoPrecAc6 = setup_info("Precipitación Acumulada 6hrs");
+        var infoPrecTot = setup_info("Precipitación Total");
     var infoNub =  setup_info("Nubosidad");
     var infoVi = setup_info("Viento a 10 metros");
