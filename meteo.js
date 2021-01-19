@@ -296,7 +296,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
       var info = L.control({position: 'topright'});
       info.onAdd = function(map){
         var div = L.DomUtil.create("div", "info");
-        div.innerHTML = '<h1>' + legend + '</h1>';
+        div.innerHTML = '<h2>' + legend + '</h2>';
         return div;
       };
       return info;
