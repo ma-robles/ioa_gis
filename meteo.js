@@ -36,6 +36,7 @@ var estados=L.tileLayer.wms('https://pronosticos.atmosfera.unam.mx:8443/geoserve
              currentTime: tod
          },
          timeDimensionControlOptions: {
+           position: "topright",
            autoPlay: false,
            loopButton: true,
            timeSteps: 1,
